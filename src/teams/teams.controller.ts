@@ -10,10 +10,14 @@ import {
 import { TeamsService } from './teams.service';
 import { Team } from './schemas';
 import { AchievementUpdate } from './models';
+import { MentorTeamService } from 'src/mentor-team/mentor-team.service';
 
 @Controller('teams')
 export class TeamsController {
-  constructor(private teamsService: TeamsService) {}
+  constructor(
+    private teamsService: TeamsService,
+    private mentorTeamService: MentorTeamService,
+  ) {}
 
   @Get('')
   getTeams() {
@@ -26,7 +30,9 @@ export class TeamsController {
   }
 
   @Delete(':id')
-  removeTeam(@Param('id') id: string) {
+  removeTeam(@Param('id') id: string, @Body() mentorId: string) {
+    // this.mentorTeamService.removeMentorsAssignedTeam(mentorId);
+
     return this.teamsService.removeTeam(id);
   }
 

@@ -24,6 +24,18 @@ export class MentorTeamService {
     );
   }
 
+  // async removeMentorsAssignedTeam(mentorId: string) {
+  //   return await this.mentorModel.findOneAndUpdate(
+  //     { _id: mentorId },
+  //     {
+  //       assignedTeam: {
+  //         id: '',
+  //         name: '',
+  //       },
+  //     },
+  //   );
+  // }
+
   updateTeamsAssignedMentor(teamId: string, assignedTeam: AssignedMentor) {
     return this.teamModel.findOneAndUpdate(
       { _id: teamId },
