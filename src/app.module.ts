@@ -1,14 +1,31 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TeamSchema } from './schema/teams.schema';
+import { TeamsModule } from './teams/teams.module';
+import { config as dotenvConfig } from 'dotenv';
+import { MentorsModule } from './mentors/mentors.module';
+import { AchievementsModule } from './achievements/achievements.module';
+import { AuthModule } from './authentication/auth.module';
+import { MentorTeamModule } from './mentor-team/mentor-team.module';
+dotenvConfig();
+
+const conn = process.env.DB_CONN;
+
+if (!conn) {
+  throw new Error(
+    'No connection string provided. Please provide a MongoDB connection string in process.env.DB_CONN',
+  );
+}
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://willstjohnbacon:UJqQNG9is1mH15ST@cluster0.wf2kn75.mongodb.net/?retryWrites=true&w=majority',{dbName: 'robocode_db'}),
-  MongooseModule.forFeature([{ name: 'Team', schema: TeamSchema}])
+  imports: [
+    MongooseModule.forRoot(conn),
+    TeamsModule,
+    MentorsModule,
+    AchievementsModule,
+    AuthModule,
+    MentorTeamModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
