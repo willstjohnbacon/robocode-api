@@ -14,8 +14,13 @@ export class TeamsService {
     return this.teamModel.find({});
   }
 
-  addTeam(team: Team) {
-    this.teamModel.create(team);
+  async addTeam(team: Team) {
+    if (await this.teamModel.find({ name: team.name })) {
+      return new BadRequestException('Team name is already taken');
+    } else if (await this.teamModel.find({ tableNumber: team.tableNumber })) {
+      return new BadRequestException('Table Number is already registered');
+    }
+    await this.teamModel.create(team);
     return this.teamModel.findOne({ name: team.name });
   }
 

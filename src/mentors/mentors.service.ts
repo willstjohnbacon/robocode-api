@@ -22,6 +22,9 @@ export class MentorsService {
   }
 
   addMentor(mentor: Mentor) {
+    if (this.mentorModel.find({ username: mentor.username })) {
+      throw new BadRequestException('Mentor username is already Taken');
+    }
     return this.mentorModel.create(mentor);
   }
 

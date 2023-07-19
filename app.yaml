@@ -10,3 +10,5 @@ resources:
   cpu: 1
   memory_gb: 0.5
   disk_size_gb: 10
+env_variables:
+  DB_CONN: 'mongodb+srv://Admin:KHCeutr0KsF2JzeZ@cluster0.wf2kn75.mongodb.net/robocode?retryWrites=true&w=majority'

@@ -6,6 +6,7 @@ export interface Team {
   name: string;
   tableNumber: string;
   color: string;
+  faction: string;
   score: number;
   assignedMentor: AssignedMentor;
   achievements: Achievement[];

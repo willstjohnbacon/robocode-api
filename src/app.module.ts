@@ -6,6 +6,7 @@ import { MentorsModule } from './mentors/mentors.module';
 import { AchievementsModule } from './achievements/achievements.module';
 import { AuthModule } from './authentication/auth.module';
 import { MentorTeamModule } from './mentor-team/mentor-team.module';
+import { FactionModule } from './factions/faction.module';
 dotenvConfig();
 
 const conn = process.env.DB_CONN;
@@ -24,6 +25,7 @@ if (!conn) {
     AchievementsModule,
     AuthModule,
     MentorTeamModule,
+    FactionModule,
   ],
   controllers: [],
   providers: [],

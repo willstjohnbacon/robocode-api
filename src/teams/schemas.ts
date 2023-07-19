@@ -17,6 +17,9 @@ export class Team {
   @Prop()
   score: number;
 
+  @Prop()
+  faction: string;
+
   @Prop({ type: {} })
   assignedMentor: AssignedMentor;
 

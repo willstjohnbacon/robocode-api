@@ -21,6 +21,9 @@ export class MentorTeamService {
     return this.mentorModel.findOneAndUpdate(
       { _id: mentorId },
       { assignedTeam: assignedTeamObj },
+      {
+        new: true,
+      },
     );
   }
 
