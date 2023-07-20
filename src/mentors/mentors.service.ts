@@ -21,8 +21,10 @@ export class MentorsService {
     return this.mentorModel.findOne({ _id: id });
   }
 
-  addMentor(mentor: Mentor) {
-    if (this.mentorModel.find({ username: mentor.username })) {
+  async addMentor(mentor: Mentor) {
+    const exists = await this.mentorModel.exists({ username: mentor.username });
+    if (exists) {
+      console.log('person exists');
       throw new BadRequestException('Mentor username is already Taken');
     }
     return this.mentorModel.create(mentor);
