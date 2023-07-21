@@ -26,4 +26,13 @@ export class AuthService {
       });
     return output[0];
   }
+
+  getCredentials(user) {
+    if (user) {
+      const credentials = atob(user).split(':');
+      const username = credentials[0];
+      const password = credentials[1];
+      return { username, password };
+    }
+  }
 }

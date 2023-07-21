@@ -1,8 +1,10 @@
-import { Body, Controller, Param, Put } from '@nestjs/common';
+import { Body, Controller, Param, Put, UseGuards } from '@nestjs/common';
 import { MentorTeamService } from './mentor-team.service';
 import { AssignedTeam } from './models';
+import { AuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('assignedTeams')
+@UseGuards(AuthGuard)
 export class AssignedTeamController {
   constructor(private mentorTeamService: MentorTeamService) {}
 

@@ -6,12 +6,15 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { AchievementsService } from './achievements.service';
 import { Achievement } from './models';
 import { Team } from 'src/teams/models';
+import { AuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('achievements')
+@UseGuards(AuthGuard)
 export class AchievementsController {
   constructor(private achievementsService: AchievementsService) {}
 

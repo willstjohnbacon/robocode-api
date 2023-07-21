@@ -1,8 +1,18 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { FactionService } from './faction.service';
 import { Faction } from './models';
+import { AuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('factions')
+@UseGuards(AuthGuard)
 export class FactionController {
   constructor(private factionService: FactionService) {}
 

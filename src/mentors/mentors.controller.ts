@@ -6,11 +6,14 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { MentorsService } from './mentors.service';
 import { Mentor } from './schemas';
+import { AuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('mentors')
+@UseGuards(AuthGuard)
 export class MentorsController {
   constructor(private mentorsService: MentorsService) {}
 

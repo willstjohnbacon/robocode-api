@@ -6,13 +6,16 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { TeamsService } from './teams.service';
 import { Team } from './schemas';
 import { AchievementUpdate } from './models';
 import { MentorTeamService } from 'src/mentor-team/mentor-team.service';
+import { AuthGuard } from 'src/authentication/auth.guard';
 
 @Controller('teams')
+@UseGuards(AuthGuard)
 export class TeamsController {
   constructor(
     private teamsService: TeamsService,

@@ -7,6 +7,8 @@ import { AchievementsModule } from './achievements/achievements.module';
 import { AuthModule } from './authentication/auth.module';
 import { MentorTeamModule } from './mentor-team/mentor-team.module';
 import { FactionModule } from './factions/faction.module';
+import { AuthService } from './authentication/auth.service';
+import { AuthGuard } from './authentication/auth.guard';
 dotenvConfig();
 
 const conn = process.env.DB_CONN;

@@ -7,6 +7,7 @@ import {
 } from './mentor-team.controller';
 import { Mentor, MentorSchema } from '../mentors/schemas';
 import { Team, TeamSchema } from '../teams/schemas';
+import { AuthModule } from 'src/authentication/auth.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { Team, TeamSchema } from '../teams/schemas';
       { name: Mentor.name, schema: MentorSchema },
       { name: Team.name, schema: TeamSchema },
     ]),
+    AuthModule,
   ],
   controllers: [AssignedMentorController, AssignedTeamController],
   providers: [MentorTeamService],
