@@ -33,7 +33,7 @@ export class TeamsController {
   }
 
   @Delete(':id')
-  removeTeam(@Param('id') id: string, @Body() mentorId: string) {
+  removeTeam(@Param('id') id: string) {
     // this.mentorTeamService.removeMentorsAssignedTeam(mentorId);
 
     return this.teamsService.removeTeam(id);

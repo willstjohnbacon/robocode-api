@@ -15,12 +15,22 @@ export class MentorTeamService {
     private teamModel: Model<TeamDocument>,
   ) {}
 
-  updateMentorsAssignedTeam(mentorId: string, assignedTeamObj: AssignedTeam) {
-    console.log(`Updating mentor with ID: ${mentorId} with`, assignedTeamObj);
-
+  updateMentorsAssignedTeam(team: Team) {
     return this.mentorModel.findOneAndUpdate(
-      { _id: mentorId },
-      { assignedTeam: assignedTeamObj },
+      { username: team.assignedMentor },
+      { assignedTeam: team.name },
+      {
+        new: true,
+      },
+    );
+  }
+
+  removeMentorsAssignedTeam(id: string) {
+    return this.mentorModel.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      { assignedTeam: '' },
       {
         new: true,
       },

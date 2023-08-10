@@ -15,16 +15,22 @@ export class TeamsService {
   }
 
   async addTeam(team: Team) {
-    if (await this.teamModel.find({ name: team.name })) {
+    if (await this.teamModel.exists({ name: team.name })) {
       return new BadRequestException('Team name is already taken');
-    } else if (await this.teamModel.find({ tableNumber: team.tableNumber })) {
-      return new BadRequestException('Table Number is already registered');
+    } else {
+      return this.teamModel.create(team);
+      // return this.teamModel.findOne({ name: team.name });
     }
-    await this.teamModel.create(team);
-    return this.teamModel.findOne({ name: team.name });
+
+    // if (assignedTeamsMentor.assignedTeam._id !== '') {
+    //   return new BadRequestException('Mentor is already assigned to Team');
+    // }
   }
 
-  removeTeam(id: string) {
+  async removeTeam(id: string) {
+    if (await !this.teamModel.exists({ _id: id })) {
+      return new BadRequestException('Team does not exist');
+    }
     return this.teamModel.findOneAndDelete({ _id: id });
   }
 

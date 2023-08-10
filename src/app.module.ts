@@ -7,8 +7,7 @@ import { AchievementsModule } from './achievements/achievements.module';
 import { AuthModule } from './authentication/auth.module';
 import { MentorTeamModule } from './mentor-team/mentor-team.module';
 import { FactionModule } from './factions/faction.module';
-import { AuthService } from './authentication/auth.service';
-import { AuthGuard } from './authentication/auth.guard';
+import { GuideModule } from './guide/guide.module';
 dotenvConfig();
 
 const conn = process.env.DB_CONN;
@@ -28,6 +27,7 @@ if (!conn) {
     AuthModule,
     MentorTeamModule,
     FactionModule,
+    GuideModule,
   ],
   controllers: [],
   providers: [],
