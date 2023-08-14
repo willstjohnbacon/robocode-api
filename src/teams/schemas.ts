@@ -20,8 +20,8 @@ export class Team {
   @Prop()
   faction: string;
 
-  @Prop({ type: {} })
-  assignedMentor: AssignedMentor;
+  @Prop()
+  assignedMentor: string;
 
   @Prop()
   achievements: Achievement[];

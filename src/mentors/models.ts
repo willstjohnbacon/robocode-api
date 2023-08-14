@@ -6,6 +6,6 @@ export interface Mentor {
   username: string;
   password: string;
   role: string;
-  assignedTeam: AssignedTeam;
+  assignedTeam: string;
   isHidden: boolean;
 }

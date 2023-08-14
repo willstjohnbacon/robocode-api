@@ -16,8 +16,8 @@ export class Mentor {
   @Prop()
   role: string;
 
-  @Prop({ type: {} })
-  assignedTeam: AssignedTeam;
+  @Prop()
+  assignedTeam: string;
 }
 
 export type MentorDocument = Document & Mentor;

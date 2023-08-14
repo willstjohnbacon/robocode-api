@@ -8,7 +8,7 @@ export interface Team {
   color: string;
   faction: string;
   score: number;
-  assignedMentor: AssignedMentor;
+  assignedMentor: string;
   achievements: Achievement[];
 }
 
