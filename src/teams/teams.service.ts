@@ -39,7 +39,6 @@ export class TeamsService {
   }
 
   async updateTeamScore(id: string, score: number) {
-    console.log(`Updating team with ID: ${id}, with score of: ${score}`);
     return await this.teamModel.findOneAndUpdate({ _id: id }, { score: score });
   }
 

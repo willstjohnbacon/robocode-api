@@ -17,7 +17,7 @@ export class MentorTeamService {
 
   updateMentorsAssignedTeam(team: Team) {
     return this.mentorModel.findOneAndUpdate(
-      { username: team.assignedMentor },
+      { name: team.assignedMentor },
       { assignedTeam: team.name },
       {
         new: true,

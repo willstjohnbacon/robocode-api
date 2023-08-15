@@ -18,9 +18,6 @@ export class AssignedTeamController {
 
   @Put('')
   updateAssignedTeam(@Body() team: Team) {
-    console.log(
-      `Updating mentor with Username: ${team.assignedMentor} with team name: ${team.name}`,
-    );
     return this.mentorTeamService.updateMentorsAssignedTeam(team);
   }
 
@@ -39,7 +36,6 @@ export class AssignedMentorController {
     @Param('id') id: string,
     @Body() assignedTeam: AssignedTeam,
   ) {
-    console.log(`Updating team with ID: ${id} with ${assignedTeam}`);
     return this.mentorTeamService.updateTeamsAssignedMentor(id, assignedTeam);
   }
 }
