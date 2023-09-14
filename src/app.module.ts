@@ -8,6 +8,7 @@ import { AuthModule } from './authentication/auth.module';
 import { MentorTeamModule } from './mentor-team/mentor-team.module';
 import { FactionModule } from './factions/faction.module';
 import { GuideModule } from './guide/guide.module';
+import { ThemeModule } from './theme/theme.module';
 dotenvConfig();
 
 const conn = process.env.DB_CONN;
@@ -27,6 +28,7 @@ if (!conn) {
     AuthModule,
     MentorTeamModule,
     FactionModule,
+    ThemeModule,
     GuideModule,
   ],
   controllers: [],

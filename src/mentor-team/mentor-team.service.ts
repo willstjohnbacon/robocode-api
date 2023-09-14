@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { MentorDocument, Mentor } from 'src/mentors/schemas';
 import { TeamDocument, Team } from 'src/teams/schemas';
-import { AssignedMentor, AssignedTeam } from './models';
+import { AssignedMentor } from './models';
 
 @Injectable()
 export class MentorTeamService {
