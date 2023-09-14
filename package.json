@@ -33,6 +33,7 @@
     "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
+    "mongoose": "^7.5.1",
     "nestjs": "^0.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
